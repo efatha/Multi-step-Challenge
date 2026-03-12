@@ -196,3 +196,54 @@ input::placeholder {
 .attribution a { 
   color: hsl(228, 45%, 44%); 
 }
+
+/* PLANS GRID */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.plan-card {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1.2rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.plan-card:hover {
+  border-color: #483eff;
+}
+
+.plan-card.selected {
+  border-color: #483eff;
+  background-color: #f8f9ff;
+}
+
+.plan-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+}
+
+.plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.plan-name {
+  color: #02295a;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.plan-price {
+  color: #9699ab;
+  font-size: 0.9rem;
+}

@@ -46,7 +46,7 @@
 
     <!-- Main content -->
     <main class="main-content">
-      <!-- Step 1 -->
+      <!-- Step 1 start -->
       <section id="step1" class="step active-step">
         <h2>Personal info</h2>
         <p class="step-description">Please provide your name, email address, and phone number.</p>
@@ -66,11 +66,132 @@
           <input type="tel" id="phone" placeholder="e.g. +1 234 567 890">
         </div>
       </section>
+      <!-- Step 1 end -->
+
+      <!-- Step 2 start -->
+      <section id="step2" class="step">
+        <h2>Select your plan</h2>
+        <p class="step-description">You have the option of monthly or yearly billing.</p>
+
+        <div class="plans-grid">
+          <div class="plan-card selected" data-plan="arcade" data-price-monthly="9" data-price-yearly="90">
+            <div class="plan-icon">🕹️</div>
+            <div class="plan-details">
+              <div class="plan-name">Arcade</div>
+              <div class="plan-price">$9/mo</div>
+              <div class="plan-free" style="display: none;">2 months free</div>
+            </div>
+          </div>
+          
+          <div class="plan-card" data-plan="advanced" data-price-monthly="12" data-price-yearly="120">
+            <div class="plan-icon">🎮</div>
+            <div class="plan-details">
+              <div class="plan-name">Advanced</div>
+              <div class="plan-price">$12/mo</div>
+              <div class="plan-free" style="display: none;">2 months free</div>
+            </div>
+          </div>
+          
+          <div class="plan-card" data-plan="pro" data-price-monthly="15" data-price-yearly="150">
+            <div class="plan-icon">🎲</div>
+            <div class="plan-details">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">$15/mo</div>
+              <div class="plan-free" style="display: none;">2 months free</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="billing-toggle">
+          <span class="toggle-option active">Monthly</span>
+          <div class="toggle-switch"></div>
+          <span class="toggle-option">Yearly</span>
+        </div>
+      </section>
+      <!-- Step 2 end -->
+
+      <!-- Step 3 start -->
+      <section id="step3" class="step">
+        <h2>Pick add-ons</h2>
+        <p class="step-description">Add-ons help enhance your gaming experience.</p>
+
+        <div class="addon-card selected" data-addon="online" data-price-monthly="1" data-price-yearly="10">
+          <input type="checkbox" class="addon-checkbox" checked>
+          <div class="addon-info">
+            <div class="addon-name">Online service</div>
+            <div class="addon-description">Access to multiplayer games</div>
+          </div>
+          <div class="addon-price">+$1/mo</div>
+        </div>
+        
+        <div class="addon-card selected" data-addon="storage" data-price-monthly="2" data-price-yearly="20">
+          <input type="checkbox" class="addon-checkbox" checked>
+          <div class="addon-info">
+            <div class="addon-name">Larger storage</div>
+            <div class="addon-description">Extra 1TB of cloud save</div>
+          </div>
+          <div class="addon-price">+$2/mo</div>
+        </div>
+        
+        <div class="addon-card" data-addon="profile" data-price-monthly="2" data-price-yearly="20">
+          <input type="checkbox" class="addon-checkbox">
+          <div class="addon-info">
+            <div class="addon-name">Customizable Profile</div>
+            <div class="addon-description">Custom theme on your profile</div>
+          </div>
+          <div class="addon-price">+$2/mo</div>
+        </div>
+      </section>
+      <!-- Step 3 end -->
+
+      <!-- Step 4 start -->
+      <section id="step4" class="step">
+        <h2>Finishing up</h2>
+        <p class="step-description">Double-check everything looks OK before confirming.</p>
+
+        <div class="summary-container">
+          <div class="summary-plan">
+            <div class="summary-plan-info">
+              <h3 id="summaryPlanName">Arcade (Monthly)</h3>
+              <span class="summary-change">Change</span>
+            </div>
+            <div class="summary-plan-price" id="summaryPlanPrice">$9/mo</div>
+          </div>
+          
+          <div class="summary-addons" id="summaryAddons">
+            <div class="summary-addon">
+              <span>Online service</span>
+              <span class="summary-addon-price">+$1/mo</span>
+            </div>
+            <div class="summary-addon">
+              <span>Larger storage</span>
+              <span class="summary-addon-price">+$2/mo</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="summary-total">
+          <span class="summary-total-label">Total (per month)</span>
+          <span class="summary-total-price" id="summaryTotal">+$12/mo</span>
+        </div>
+      </section>
+      <!-- Step 4 end -->
+
+      <!-- Step 5 start -->
+      <section id="step5" class="step">
+        <div class="thank-you">
+          <div class="thank-you-icon">✓</div>
+          <h2>Thank you!</h2>
+          <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+        </div>
+      </section>
+      <!-- Step 5 end -->
 
       <!-- Navigation buttons -->
       <div class="navigation">
         <button class="btn btn-secondary" id="goBackBtn">Go Back</button>
         <button class="btn btn-primary" id="nextStepBtn">Next Step</button>
+        <button class="btn btn-confirm" id="confirmBtn" style="display: none;">Confirm</button>
       </div>
     </main>
   </div>
@@ -79,5 +200,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script src="./js/script.js"></script>
 </body>
 </html>
