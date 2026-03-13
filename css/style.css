@@ -10,7 +10,6 @@ body {
   background-color: #eef5ff;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -28,7 +27,7 @@ body {
   gap: 1rem;
 }
 
-/* SIDEBAR (styles du commit 2) */
+/* SIDEBAR */
 .sidebar {
   background-image: url('../assets/images/bg-sidebar-desktop.svg');
   background-repeat: no-repeat;
@@ -57,6 +56,7 @@ body {
   color: white;
   font-weight: 700;
   font-size: 0.9rem;
+  transition: all 0.3s;
 }
 
 .step-number.active {
@@ -93,9 +93,15 @@ body {
   flex-direction: column;
 }
 
-/* STEP 1 STYLES */
+/* FORM STEPS */
 .step {
   display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .step.active-step {
@@ -121,7 +127,8 @@ h2 {
 }
 
 label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   color: #02295a;
   font-size: 0.9rem;
   font-weight: 500;
@@ -150,51 +157,14 @@ input::placeholder {
   font-weight: 400;
 }
 
-/* NAVIGATION BUTTONS */
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5rem;
+input.error {
+  border-color: #ed3548;
 }
 
-.btn {
-  padding: 0.9rem 1.8rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  font-family: 'Ubuntu', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-primary {
-  background-color: #02295a;
-  color: white;
-  margin-left: auto;
-}
-
-.btn-primary:hover {
-  background-color: #174a8a;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: #9699ab;
-}
-
-.btn-secondary:hover {
-  color: #02295a;
-}
-
-/* ATTRIBUTION */
-.attribution { 
-  font-size: 11px; 
-  text-align: center; 
-  margin-top: 2rem;
-}
-.attribution a { 
-  color: hsl(228, 45%, 44%); 
+.error-message {
+  color: #ed3548;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 /* PLANS GRID */
@@ -246,4 +216,268 @@ input::placeholder {
 .plan-price {
   color: #9699ab;
   font-size: 0.9rem;
+}
+
+.plan-free {
+  color: #02295a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+/* BILLING TOGGLE */
+.billing-toggle {
+  background-color: #f8f9ff;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.toggle-option {
+  color: #9699ab;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle-option.active {
+  color: #02295a;
+  font-weight: 700;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  background-color: #02295a;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-switch::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.yearly::after {
+  transform: translateX(20px);
+}
+
+/* ADD-ONS */
+.addon-card {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+
+.addon-card:hover {
+  border-color: #483eff;
+}
+
+.addon-card.selected {
+  border-color: #483eff;
+  background-color: #f8f9ff;
+}
+
+.addon-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #483eff;
+  cursor: pointer;
+}
+
+.addon-info {
+  flex: 1;
+}
+
+.addon-name {
+  color: #02295a;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.addon-description {
+  color: #9699ab;
+  font-size: 0.9rem;
+}
+
+.addon-price {
+  color: #483eff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* SUMMARY */
+.summary-container {
+  background-color: #f8f9ff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d6d9e6;
+  margin-bottom: 1rem;
+}
+
+.summary-plan-info h3 {
+  color: #02295a;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.summary-change {
+  color: #9699ab;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.summary-change:hover {
+  color: #483eff;
+}
+
+.summary-plan-price {
+  color: #02295a;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.summary-addons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-addon {
+  display: flex;
+  justify-content: space-between;
+  color: #9699ab;
+  font-size: 0.95rem;
+}
+
+.summary-addon-price {
+  color: #02295a;
+  font-weight: 500;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.summary-total-label {
+  color: #9699ab;
+  font-size: 0.95rem;
+}
+
+.summary-total-price {
+  color: #483eff;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+/* NAVIGATION BUTTONS */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 3rem;
+}
+
+.btn {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background-color: #02295a;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #174a8a;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #9699ab;
+}
+
+.btn-secondary:hover {
+  color: #02295a;
+}
+
+.btn-confirm {
+  background-color: #483eff;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #5f57ff;
+}
+
+/* THANK YOU STEP */
+.thank-you {
+  text-align: center;
+  padding: 3rem 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.thank-you-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.thank-you h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.thank-you p {
+  color: #9699ab;
+  line-height: 1.6;
+  max-width: 450px;
+  margin: 0 auto;
+  font-size: 1rem;
 }
