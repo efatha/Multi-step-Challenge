@@ -99,8 +99,12 @@
           if (!field.value.trim()) {
             isValid = false;
             errorMessage = 'This field is required';
+          } else if (!/^\+?[0-9]+$/.test(field.value)) {
+            isValid = false;
+            errorMessage = 'Phone number must contain only numbers and optional + at the beginning';
           }
           break;
+
       }
 
       field.classList.toggle('error', !isValid);

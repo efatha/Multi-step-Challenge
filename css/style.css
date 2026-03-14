@@ -1,483 +1,770 @@
-/* RESET & BASE STYLES */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #eef5ff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-/* MAIN CONTAINER */
-.form-container {
-  max-width: 940px;
-  width: 100%;
-  background-color: white;
-  border-radius: 15px;
-  padding: 1rem;
-  box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 1rem;
-}
-
-/* SIDEBAR */
-.sidebar {
-  background-image: url('../assets/images/bg-sidebar-desktop.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 274px;
-  min-height: 568px;
-  border-radius: 10px;
-  padding: 2.5rem 2rem;
-}
-
-.step-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.step-number {
-  width: 33px;
-  height: 33px;
-  border: 1px solid white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: all 0.3s;
-}
-
-.step-number.active {
-  background-color: #bee2fd;
-  border-color: #bee2fd;
-  color: #02295a;
-}
-
-.step-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.step-label {
-  color: #abbbc2;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.step-title {
-  color: white;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* MAIN CONTENT */
-.main-content {
-  flex: 1;
-  padding: 2.5rem 3.5rem 1rem 3.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-/* FORM STEPS */
-.step {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.step.active-step {
-  display: block;
-}
-
-h2 {
-  color: #02295a;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.step-description {
-  color: #9699ab;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-}
-
-/* FORM FIELDS */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: flex;
-  justify-content: space-between;
-  color: #02295a;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-input {
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid #d6d9e6;
-  border-radius: 8px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  color: #02295a;
-}
-
-input:focus {
-  outline: none;
-  border-color: #483eff;
-}
-
-input::placeholder {
-  color: #9699ab;
-  font-weight: 400;
-}
-
-input.error {
-  border-color: #ed3548;
-}
-
-.error-message {
-  color: #ed3548;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-/* PLANS GRID */
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.plan-card {
-  border: 1px solid #d6d9e6;
-  border-radius: 8px;
-  padding: 1.2rem 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.plan-card:hover {
-  border-color: #483eff;
-}
-
-.plan-card.selected {
-  border-color: #483eff;
-  background-color: #f8f9ff;
-}
-
-.plan-icon {
-  width: 40px;
-  height: 40px;
-  font-size: 2rem;
-}
-
-.plan-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.plan-name {
-  color: #02295a;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.plan-price {
-  color: #9699ab;
-  font-size: 0.9rem;
-}
-
-.plan-free {
-  color: #02295a;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: 0.3rem;
-}
-
-/* BILLING TOGGLE */
-.billing-toggle {
-  background-color: #f8f9ff;
-  padding: 1rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.toggle-option {
-  color: #9699ab;
-  font-weight: 500;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.toggle-option.active {
-  color: #02295a;
-  font-weight: 700;
-}
-
-.toggle-switch {
-  width: 40px;
-  height: 20px;
-  background-color: #02295a;
-  border-radius: 10px;
-  position: relative;
-  cursor: pointer;
-}
-
-.toggle-switch::after {
-  content: '';
-  width: 14px;
-  height: 14px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  transition: transform 0.3s ease;
-}
-
-.toggle-switch.yearly::after {
-  transform: translateX(20px);
-}
-
-/* ADD-ONS */
-.addon-card {
-  border: 1px solid #d6d9e6;
-  border-radius: 8px;
-  padding: 1.2rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: all 0.2s;
-}
-
-.addon-card:hover {
-  border-color: #483eff;
-}
-
-.addon-card.selected {
-  border-color: #483eff;
-  background-color: #f8f9ff;
-}
-
-.addon-checkbox {
-  width: 20px;
-  height: 20px;
-  accent-color: #483eff;
-  cursor: pointer;
-}
-
-.addon-info {
-  flex: 1;
-}
-
-.addon-name {
-  color: #02295a;
-  font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.addon-description {
-  color: #9699ab;
-  font-size: 0.9rem;
-}
-
-.addon-price {
-  color: #483eff;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-/* SUMMARY */
-.summary-container {
-  background-color: #f8f9ff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.summary-plan {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #d6d9e6;
-  margin-bottom: 1rem;
-}
-
-.summary-plan-info h3 {
-  color: #02295a;
-  font-weight: 700;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.summary-change {
-  color: #9699ab;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: color 0.2s;
-}
-
-.summary-change:hover {
-  color: #483eff;
-}
-
-.summary-plan-price {
-  color: #02295a;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.summary-addons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.summary-addon {
-  display: flex;
-  justify-content: space-between;
-  color: #9699ab;
-  font-size: 0.95rem;
-}
-
-.summary-addon-price {
-  color: #02295a;
-  font-weight: 500;
-}
-
-.summary-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1.5rem;
-}
-
-.summary-total-label {
-  color: #9699ab;
-  font-size: 0.95rem;
-}
-
-.summary-total-price {
-  color: #483eff;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-
-/* NAVIGATION BUTTONS */
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 3rem;
-}
-
-.btn {
-  padding: 0.9rem 1.8rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  font-family: 'Ubuntu', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-.btn-primary {
-  background-color: #02295a;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #174a8a;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: #9699ab;
-}
-
-.btn-secondary:hover {
-  color: #02295a;
-}
-
-.btn-confirm {
-  background-color: #483eff;
-  color: white;
-}
-
-.btn-confirm:hover {
-  background-color: #5f57ff;
-}
-
-/* THANK YOU STEP */
-.thank-you {
-  text-align: center;
-  padding: 3rem 1rem;
-  animation: fadeIn 0.5s ease;
-}
-
-.thank-you-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 2rem;
-  font-size: 4rem;
-  line-height: 1;
-}
-
-.thank-you h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.thank-you p {
-  color: #9699ab;
-  line-height: 1.6;
-  max-width: 450px;
-  margin: 0 auto;
-  font-size: 1rem;
-}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      background-color: #eef5ff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    /* MAIN CONTAINER */
+    .form-container {
+      max-width: 940px;
+      width: 100%;
+      background-color: white;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background-image: url('../assets/images/bg-sidebar-desktop.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 274px;
+      min-height: 568px;
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-number {
+      width: 33px;
+      height: 33px;
+      border: 1px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .step-number.active {
+      background-color: #bee2fd;
+      border-color: #bee2fd;
+      color: #02295a;
+    }
+
+    .step-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-label {
+      color: #abbbc2;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .step-title {
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      flex: 1;
+      padding: 2.5rem 3.5rem 1rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* FORM STEPS */
+    .step {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step.active-step {
+      display: block;
+    }
+
+    h2 {
+      color: #02295a;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .step-description {
+      color: #9699ab;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* FORM FIELDS */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      color: #02295a;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #d6d9e6;
+      border-radius: 8px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      color: #02295a;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #483eff;
+    }
+
+    input::placeholder {
+      color: #9699ab;
+      font-weight: 400;
+    }
+
+    input.error {
+      border-color: #ed3548;
+    }
+
+    .error-message {
+      color: #ed3548;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* PLANS GRID */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .plan-card {
+      border: 1px solid #d6d9e6;
+      border-radius: 8px;
+      padding: 1.2rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .plan-card:hover {
+      border-color: #483eff;
+    }
+
+    .plan-card.selected {
+      border-color: #483eff;
+      background-color: #f8f9ff;
+    }
+
+    .plan-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 2rem;
+    }
+
+    .plan-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .plan-name {
+      color: #02295a;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .plan-price {
+      color: #9699ab;
+      font-size: 0.9rem;
+    }
+
+    .plan-free {
+      color: #02295a;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 0.3rem;
+    }
+
+    /* BILLING TOGGLE */
+    .billing-toggle {
+      background-color: #f8f9ff;
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toggle-option {
+      color: #9699ab;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .toggle-option.active {
+      color: #02295a;
+      font-weight: 700;
+    }
+
+    .toggle-switch {
+      width: 40px;
+      height: 20px;
+      background-color: #02295a;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-switch.yearly::after {
+      transform: translateX(20px);
+    }
+
+    /* ADD-ONS */
+    .addon-card {
+      border: 1px solid #d6d9e6;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+    }
+
+    .addon-card:hover {
+      border-color: #483eff;
+    }
+
+    .addon-card.selected {
+      border-color: #483eff;
+      background-color: #f8f9ff;
+    }
+
+    .addon-checkbox {
+      width: 20px;
+      height: 20px;
+      accent-color: #483eff;
+      cursor: pointer;
+    }
+
+    .addon-info {
+      flex: 1;
+    }
+
+    .addon-name {
+      color: #02295a;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .addon-description {
+      color: #9699ab;
+      font-size: 0.9rem;
+    }
+
+    .addon-price {
+      color: #483eff;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* SUMMARY */
+    .summary-container {
+      background-color: #f8f9ff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-plan {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #d6d9e6;
+      margin-bottom: 1rem;
+    }
+
+    .summary-plan-info h3 {
+      color: #02295a;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .summary-change {
+      color: #9699ab;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .summary-change:hover {
+      color: #483eff;
+    }
+
+    .summary-plan-price {
+      color: #02295a;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .summary-addons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .summary-addon {
+      display: flex;
+      justify-content: space-between;
+      color: #9699ab;
+      font-size: 0.95rem;
+    }
+
+    .summary-addon-price {
+      color: #02295a;
+      font-weight: 500;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+
+    .summary-total-label {
+      color: #9699ab;
+      font-size: 0.95rem;
+    }
+
+    .summary-total-price {
+      color: #483eff;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* NAVIGATION BUTTONS */
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 3rem;
+    }
+
+    .btn {
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      font-family: 'Ubuntu', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+
+    .btn-primary {
+      background-color: #02295a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #174a8a;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #9699ab;
+    }
+
+    .btn-secondary:hover {
+      color: #02295a;
+    }
+
+    .btn-confirm {
+      background-color: #483eff;
+      color: white;
+    }
+
+    .btn-confirm:hover {
+      background-color: #5f57ff;
+    }
+
+    /* THANK YOU STEP */
+    .thank-you {
+      text-align: center;
+      padding: 3rem 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .thank-you-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 2rem;
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .thank-you h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .thank-you p {
+      color: #9699ab;
+      line-height: 1.6;
+      max-width: 450px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* ========== MOBILE STYLES ========== */
+    /* Correspond exactement aux images mobile-design */
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+        background-color: #eef5ff;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      .form-container {
+        flex-direction: column;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        gap: 0;
+        max-width: 100%;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* SIDEBAR MOBILE - comme dans les images */
+      .sidebar {
+        width: 100%;
+        min-height: 172px;
+        background-image: url('../assets/images/bg-sidebar-mobile.svg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem 1rem;
+      }
+
+      .step-item {
+        margin-bottom: 0;
+        width: auto;
+      }
+
+      .step-info {
+        display: none; /* Cache le texte sur mobile */
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        margin: 0 0.5rem;
+        border: 1px solid white;
+      }
+
+      /* MAIN CONTENT MOBILE - carte blanche flottante */
+      .main-content {
+        background-color: white;
+        border-radius: 10px;
+        margin: -5rem 1rem 6rem 1rem;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+      }
+
+      /* STEP 1 MOBILE - comme dans mobile-design-step-1 */
+      #step1 h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      #step1 .step-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+
+      /* Champs de formulaire mobile */
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      input {
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+      }
+
+      /* STEP 2 MOBILE - plans en colonne */
+      .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .plan-card {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem;
+        align-items: center;
+      }
+
+      .plan-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .plan-details {
+        gap: 0.2rem;
+      }
+
+      .plan-name {
+        font-size: 1.1rem;
+      }
+
+      .plan-price {
+        font-size: 0.9rem;
+      }
+
+      .plan-free {
+        font-size: 0.8rem;
+      }
+
+      /* Billing toggle mobile */
+      .billing-toggle {
+        padding: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      /* STEP 3 MOBILE - add-ons */
+      .addon-card {
+        padding: 1rem;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .addon-name {
+        font-size: 0.95rem;
+      }
+
+      .addon-description {
+        font-size: 0.8rem;
+      }
+
+      .addon-price {
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      /* STEP 4 MOBILE - comme dans mobile-design-step-4 */
+      .summary-container {
+        padding: 1.2rem;
+      }
+
+      .summary-plan {
+        padding-bottom: 1rem;
+      }
+
+      .summary-plan-info h3 {
+        font-size: 0.95rem;
+      }
+
+      .summary-change {
+        font-size: 0.85rem;
+      }
+
+      .summary-plan-price {
+        font-size: 0.95rem;
+      }
+
+      .summary-addon {
+        font-size: 0.9rem;
+      }
+
+      .summary-total {
+        padding: 0.5rem 1rem;
+      }
+
+      .summary-total-label {
+        font-size: 0.95rem;
+      }
+
+      .summary-total-price {
+        font-size: 1.2rem;
+      }
+
+      /* STEP 5 MOBILE - comme dans mobile-design-step-5 */
+      .thank-you {
+        padding: 2rem 0.5rem;
+      }
+
+      .thank-you-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .thank-you h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .thank-you p {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+        line-height: 1.5;
+      }
+
+      /* NAVIGATION MOBILE - fixée en bas */
+      .navigation {
+        background-color: white;
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        z-index: 100;
+      }
+
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* TRÈS PETITS ÉCRANS (MOBILE < 375px) */
+    @media (max-width: 375px) {
+      .main-content {
+        margin: -4rem 0.8rem 6rem 0.8rem;
+        padding: 1.5rem 1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .step-description {
+        font-size: 0.9rem;
+      }
+
+      .plan-card {
+        padding: 0.8rem;
+      }
+
+      .plan-name {
+        font-size: 1rem;
+      }
+
+      .plan-price {
+        font-size: 0.8rem;
+      }
+
+      .addon-card {
+        padding: 0.8rem;
+      }
+
+      .addon-name {
+        font-size: 0.9rem;
+      }
+
+      .addon-description {
+        font-size: 0.7rem;
+      }
+
+      .addon-price {
+        font-size: 0.8rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .thank-you h2 {
+        font-size: 1.5rem;
+      }
+
+      .thank-you p {
+        font-size: 0.85rem;
+      }
+    }
