@@ -460,15 +460,15 @@
       padding: 3rem 1rem;
       animation: fadeIn 0.5s ease;
     }
-
     .thank-you-icon {
-      width: 80px;
+      background-image: url('../assets/images/icon-thank-you.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: 80px;  
       height: 80px;
-      margin: 0 auto 2rem;
-      font-size: 4rem;
-      line-height: 1;
+      margin: 0 auto 20px; 
     }
-
     .thank-you h2 {
       margin-bottom: 1rem;
       font-size: 2rem;
@@ -482,8 +482,6 @@
       font-size: 1rem;
     }
 
-    /* ========== MOBILE STYLES ========== */
-    /* Correspond exactement aux images mobile-design */
     @media (max-width: 768px) {
       body {
         padding: 0;
@@ -504,7 +502,6 @@
         position: relative;
       }
 
-      /* SIDEBAR MOBILE - comme dans les images */
       .sidebar {
         width: 100%;
         min-height: 172px;
@@ -524,8 +521,7 @@
       }
 
       .step-info {
-        display: none; /* Cache le texte sur mobile */
-      }
+        display: none;
 
       .step-number {
         width: 40px;
@@ -535,7 +531,6 @@
         border: 1px solid white;
       }
 
-      /* MAIN CONTENT MOBILE - carte blanche flottante */
       .main-content {
         background-color: white;
         border-radius: 10px;
@@ -546,7 +541,6 @@
         z-index: 10;
       }
 
-      /* STEP 1 MOBILE - comme dans mobile-design-step-1 */
       #step1 h2 {
         font-size: 1.8rem;
         margin-bottom: 0.5rem;
@@ -558,7 +552,6 @@
         line-height: 1.5;
       }
 
-      /* Champs de formulaire mobile */
       .form-group {
         margin-bottom: 1.2rem;
       }
@@ -568,7 +561,6 @@
         font-size: 1rem;
       }
 
-      /* STEP 2 MOBILE - plans en colonne */
       .plans-grid {
         grid-template-columns: 1fr;
         gap: 0.8rem;
@@ -607,13 +599,12 @@
         font-size: 0.8rem;
       }
 
-      /* Billing toggle mobile */
+
       .billing-toggle {
         padding: 0.9rem;
         margin-bottom: 1rem;
       }
 
-      /* STEP 3 MOBILE - add-ons */
       .addon-card {
         padding: 1rem;
         gap: 1rem;
@@ -633,7 +624,6 @@
         white-space: nowrap;
       }
 
-      /* STEP 4 MOBILE - comme dans mobile-design-step-4 */
       .summary-container {
         padding: 1.2rem;
       }
@@ -670,17 +660,11 @@
         font-size: 1.2rem;
       }
 
-      /* STEP 5 MOBILE - comme dans mobile-design-step-5 */
+
       .thank-you {
         padding: 2rem 0.5rem;
       }
 
-      .thank-you-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-      }
 
       .thank-you h2 {
         font-size: 1.8rem;
@@ -693,7 +677,6 @@
         line-height: 1.5;
       }
 
-      /* NAVIGATION MOBILE - fixée en bas */
       .navigation {
         background-color: white;
         padding: 1rem;
@@ -712,7 +695,6 @@
       }
     }
 
-    /* TRÈS PETITS ÉCRANS (MOBILE < 375px) */
     @media (max-width: 375px) {
       .main-content {
         margin: -4rem 0.8rem 6rem 0.8rem;
@@ -767,4 +749,5 @@
       .thank-you p {
         font-size: 0.85rem;
       }
-    }
+    } 
+  }
