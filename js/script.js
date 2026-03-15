@@ -13,6 +13,7 @@
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
       attachEventListeners();
+       updateNavigation();
     });
 
     function attachEventListeners() {
@@ -262,16 +263,19 @@
       const confirmBtn = document.getElementById('confirmBtn');
 
       if (currentStep === 1) {
-        goBackBtn.style.visibility = 'hidden';
+        goBackBtn.style.opacity = '0';
+        goBackBtn.style.pointerEvents = 'none'; 
       } else {
-        goBackBtn.style.visibility = 'visible';
+        goBackBtn.style.opacity = '1';
+        goBackBtn.style.pointerEvents = 'auto';
       }
 
       if (currentStep === 4) {
         nextBtn.style.display = 'none';
         confirmBtn.style.display = 'block';
       } else if (currentStep === 5) {
-        goBackBtn.style.display = 'none';
+        goBackBtn.style.opacity = '0';
+        goBackBtn.style.pointerEvents = 'none';
         nextBtn.style.display = 'none';
         confirmBtn.style.display = 'none';
       } else {

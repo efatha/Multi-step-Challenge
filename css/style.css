@@ -522,6 +522,7 @@
 
       .step-info {
         display: none;
+      }
 
       .step-number {
         width: 40px;
@@ -750,4 +751,4 @@
         font-size: 0.85rem;
       }
     } 
-  }
+  
